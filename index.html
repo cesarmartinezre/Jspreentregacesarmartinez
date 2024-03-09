@@ -1,11 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tiburoncin</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>TIBUMOTORES</h1>
+
+    <button id="verOcultarInfo">Ver carrito</button>
+    <div id="seccionVenta">
+        <input placeholder="Nombre" id="input">
+        <input placeholder="Precio menor" id="precioMenor">
+        <input placeholder="Precio mayor" id="precioMayor">
+        <button id="botonBuscar">BUSCAR</button>
+        <div id="categorias">
+
+        </div>
+    
+        <div id="productos"></div>
+    </div>
+
+    <div class="oculta" id="seccionCarrito">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio unitario</th>
+                    <th>Unidades</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="carrito">
+    
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <h3>Total: $<span id="montoTotal">0</span></h3>
+                        <button id="comprar">Comprar</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
+
     <script src="./scrip.js"></script>
-</body>
+  </body>
 </html>

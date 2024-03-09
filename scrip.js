@@ -1,7 +1,9 @@
-function saludar() {
+
+/* function saludar() {
   alert("Bienvenido");
 }
 saludar();
+ */
 
 // primero pre entrega
 
@@ -40,14 +42,14 @@ function cargarCantidad(cantidad) {
 
 // segunda pre entrega
 
-let productos = [
-  {id : 1, nombre: "Honda Gold Wing Tour 2024", categoria: "tourer", cilindraje: "1.833 cc", precio: 29.999 },
-  {id : 2, nombre: "BMW M 1000 XR 2024", categoria: "tourer", cilindraje: "999 cc", precio: 24.200 },
-  {id : 3, nombre: "KTM 690 Enduro R 2023", categoria: "enduro", cilindraje: "690 cc", precio: 12.249 },
-  {id : 4, nombre: "GasGas EC 200 2019", categoria: "enduro", cilindraje: "199,40 cc", precio: 7.499 },
-  {id : 5, nombre: "Yamaha TMAX 2024", categoria: "maxi-scooter", cilindraje: "562 cc", precio: 14.099 },
-  {id : 6, nombre: "Piaggio MP3 530 Exclusive 2023", categoria: "maxi-scooter", cilindraje: "530 cc", precio: 12.999 },
-  {id : 7, nombre: "Honda X-ADV 2024", categoria: "maxi-scooter", cilindraje: "745 cc", precio: 13.050},
+/* let productos = [
+  {id : 1, nombre: "Honda Gold Wing Tour 2024", categoria: "tourer", cilindraje: "1.833 cc", precio: 29.999, Imagen: "Honda Gold Wing Tour 2024.jpg"  },
+  {id : 2, nombre: "BMW M 1000 XR 2024", categoria: "tourer", cilindraje: "999 cc", precio: 24.200, Imagen: "BMW-M-1000-XR-2024.jpg" },
+  {id : 3, nombre: "KTM 690 Enduro R 2023", categoria: "enduro", cilindraje: "690 cc", precio: 12.249, Imagen: "KTM 690 Enduro R 2023.jpg" },
+  {id : 4, nombre: "GasGas EC 200 2019", categoria: "enduro", cilindraje: "199,40 cc", precio: 7.499, Imagen: "GasGas EC 200 2019.jpg" },
+  {id : 5, nombre: "Yamaha TMAX 2024", categoria: "maxi-scooter", cilindraje: "562 cc", precio: 14.099, Imagen: "Yamaha TMAX 2024.jpg" },
+  {id : 6, nombre: "Piaggio MP3 530 Exclusive 2023", categoria: "maxi-scooter", cilindraje: "530 cc", precio: 12.999, Imagen: "Piaggio MP3 530 Exclusive 2023.jpg" },
+  {id : 7, nombre: "Honda X-ADV 2024", categoria: "maxi-scooter", cilindraje: "745 cc", precio: 13.050, Imagen: "Honda X-ADV 2024.jpg" },
 ]
 
 let carro = []
@@ -115,4 +117,186 @@ function listarCategorias(productos) {
       salida = salida + catalogo.id + " - " + catalogo.categoria + "\n"
   })
   return salida 
+} */
+
+//TERCERA PRE ENTREGA
+function obtenerProductos() {
+  
+  return [
+    {id : 1, nombre: "Honda Gold Wing Tour 2024", categoria: "tourer", stock: 5, cilindraje: "1833 cc", precio: 29.999, Imagen: "Honda Gold Wing Tour 2024.webp"  },
+    {id : 2, nombre: "BMW M 1000 XR 2024", categoria: "tourer", stock: 3,  cilindraje: "999 cc", precio: 24.200, Imagen: "BMW-M-1000-XR-2024.jpg" },
+    {id : 3, nombre: "KTM 690 Enduro R 2023", categoria: "enduro", stock: 10,  cilindraje: "690 cc", precio: 12.249, Imagen: "KTM 690 Enduro R 2023.jpg" },
+    {id : 4, nombre: "GasGas EC 200 2019", categoria: "enduro", stock: 6, cilindraje: "19940 cc", precio: 7.499, Imagen: "GasGas EC 200 2019.jpg" },
+    {id : 5, nombre: "Yamaha TMAX 2024", categoria: "maxi scooter", stock: 5, cilindraje: "562 cc", precio: 14.099, Imagen: "Yamaha TMAX 2024.jpg" },
+    {id : 6, nombre: "Piaggio MP3 530 Exclusive 2023", categoria: "maxi scooter", stock: 1, cilindraje: "530 cc", precio: 12.999, Imagen: "Piaggio MP3 530 Exclusive 2023.webp" },
+    {id : 7, nombre: "Honda X-ADV 2024", categoria: "maxi scooter", stock: 4, cilindraje: "745 cc", precio: 13.050, Imagen: "Honda X-ADV 2024.jpg" },
+    {id : 8, nombre: "Triumph Tiger 1200 GT Pro 2024", categoria: "deportivas", stock: 2, cilindraje: "1160 cc", precio: 22.845, Imagen: "Triumph Tiger 1200 GT Pro 2024.jpg" },
+]
+}
+
+principal()
+
+function principal() {
+    let productos = obtenerProductos()
+    renderizarProductos(productos)
+    renderizarCarrito()
+
+    let input = document.getElementById("input")
+    let inputPrecioMenor = document.getElementById("precioMenor")
+    let inputPrecioMayor = document.getElementById("precioMayor")
+
+    let botonBuscar = document.getElementById("botonBuscar")
+    botonBuscar.addEventListener("click", () => filtrarTarjetas(input, inputPrecioMenor, inputPrecioMayor))
+
+    let botonComprar = document.getElementById("comprar")
+    botonComprar.addEventListener("click", finalizarCompra)
+
+    let botonVerOcultar = document.getElementById("verOcultarInfo")
+    botonVerOcultar.addEventListener("click", verOcultarProductosCarrito)
+
+    let contenedorBotones = document.getElementById("categorias")
+    let categorias = obtenerDiferentesCategorias(productos)
+    crearBotonesFiltros(contenedorBotones, categorias)
+}
+
+function crearBotonesFiltros(contenedor, categorias) {
+    categorias.forEach(categoria => {
+        let boton = document.createElement("button")
+        boton.innerText = categoria
+        boton.id = categoria
+        boton.addEventListener("click", filtrarPorCategoria)
+        contenedor.append(boton)
+    })
+}
+
+function obtenerDiferentesCategorias(productos) {
+    let categorias = []
+    productos.forEach(producto => {
+        if (!categorias.includes(producto.categoria)) {
+            categorias.push(producto.categoria)
+        }
+        
+    })
+    return categorias
+}
+
+function filtrarPorCategoria(e) {
+    let categoria = e.target.id
+    console.log(categoria)
+    let productos = obtenerProductos()
+    let productosFiltrados = productos.filter(producto => producto.categoria === categoria)
+    renderizarProductos(productosFiltrados)
+}
+
+function verOcultarProductosCarrito(e) {
+    let seccionVenta = document.getElementById("seccionVenta")
+    let seccionCarrito = document.getElementById("seccionCarrito")
+
+    seccionVenta.classList.toggle("oculta")
+    seccionCarrito.classList.toggle("oculta")
+
+    e.target.innerText = e.target.innerText === "Ver carrito" ? "Ver productos" : "Ver carrito"
+}
+
+function finalizarCompra() {
+    alert("Gracias por su compra")
+    localStorage.removeItem("carrito")
+    renderizarCarrito()
+}
+
+function renderizarProductos(productos) {
+    let contenedor = document.getElementById("productos")
+    contenedor.innerHTML = ""
+    productos.forEach(({ Imagen, nombre, precio, stock, id }) => {
+
+        let tarjetaProd = document.createElement("div")
+        tarjetaProd.className = "producto"
+
+        tarjetaProd.innerHTML = `
+            <img src="./images/${Imagen}" />
+            <h3>${nombre}</h3>
+            <h4>${precio}</h4>
+            <p>Quedan ${stock} unidades</p>
+            <button id=${id}>Agregar al carrito</button>
+        `
+
+        contenedor.append(tarjetaProd)
+        let botonAgregarAlCarrito = document.getElementById(id)
+        botonAgregarAlCarrito.addEventListener("click", agregarAlCarrito)
+    })
+}
+
+function agregarAlCarrito(e) {
+    let carrito = obtenerCarrito()
+    let productos = obtenerProductos()
+
+    let idBotonProducto = Number(e.target.id)
+    let productoBuscado = productos.find(({ id }) => id === idBotonProducto)
+    let { id, nombre, precio, stock } = productoBuscado
+    let productoEnCarrito = carrito.find(({ id }) => id === idBotonProducto)
+
+    if (stock > 0) {
+        productoBuscado.stock--
+        if (productoEnCarrito) {
+            productoEnCarrito.unidades++
+            productoEnCarrito.subtotal = productoEnCarrito.precioUnitario * productoEnCarrito.unidades
+        } else {
+            carrito.push({
+                id, // es equivalente a decir id: id
+                nombre,
+                precioUnitario: precio,
+                unidades: 1,
+                subtotal: precio
+            })
+        }
+        localStorage.setItem("carrito", JSON.stringify(carrito))
+        renderizarCarrito()
+    } else {
+        alert("No queda más ")
+    }
+}
+
+function modificarTotal() {
+    let carrito = obtenerCarrito()
+    let nodoTotal = document.getElementById("montoTotal")
+    nodoTotal.innerText = carrito ? carrito.reduce((acum, prod) => acum + prod.subtotal, 0) : 0
+}
+
+function renderizarCarrito() {
+    let carrito = obtenerCarrito()
+
+    let contenedor = document.getElementById("carrito")
+    contenedor.innerHTML = ""
+
+    carrito.forEach(({ nombre, precioUnitario, unidades, subtotal }) => {
+        let item = document.createElement("tr")
+
+        item.innerHTML = `
+            <td>${nombre}</td>
+            <td>${precioUnitario}</td>
+            <td>${unidades}</td>
+            <td>${subtotal}</td>
+        `
+        contenedor.append(item)
+    })
+
+    modificarTotal()
+}
+
+function filtrarTarjetas(inputNombre, inputPrecioMenor, inputPrecioMayor) {
+    let productosFiltrados
+    let productos = obtenerProductos()
+    if (inputNombre.value && (!inputPrecioMenor.value && !inputPrecioMayor.value)) {
+        productosFiltrados = productos.filter(producto => producto.nombre.includes(inputNombre.value))
+    } else if (!inputNombre.value && (inputPrecioMenor.value && inputPrecioMayor.value)) {
+        productosFiltrados = productos.filter(producto => producto.precio >= Number(inputPrecioMenor.value) && producto.precio <= Number(inputPrecioMayor.value))
+    } else if (inputNombre.value && inputPrecioMenor.value && inputPrecioMayor.value) {
+        productosFiltrados = productos.filter(producto => producto.nombre.includes(inputNombre.value) && producto.precio >= Number(inputPrecioMenor.value) && producto.precio <= Number(inputPrecioMayor.value))
+    }
+    renderizarProductos(productosFiltrados)
+}
+
+function obtenerCarrito() {
+    return localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")) : []
+    
 }
