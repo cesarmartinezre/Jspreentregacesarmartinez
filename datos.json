@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "nombre": "Honda Gold Wing Tour 2024",
+        "categoria": "tourer",
+        "stock": 5,
+        "cilindraje": "1833 cc",
+        "precio": 29.999,
+        "Imagen": "Honda Gold Wing Tour 2024.webp"
+    },
+    {
+        "id": 2,
+        "nombre": "BMW M 1000 XR 2024",
+        "categoria": "tourer",
+        "stock": 3,
+        "cilindraje": "999 cc",
+        "precio": 24.2,
+        "Imagen": "BMW-M-1000-XR-2024.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "KTM 690 Enduro R 2023",
+        "categoria": "enduro",
+        "stock": 10,
+        "cilindraje": "690 cc",
+        "precio": 12.249,
+        "Imagen": "KTM 690 Enduro R 2023.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "GasGas EC 200 2019",
+        "categoria": "enduro",
+        "stock": 6,
+        "cilindraje": "19940 cc",
+        "precio": 7.499,
+        "Imagen": "GasGas EC 200 2019.jpg"
+    },
+    {
+        "id": 5,
+        "nombre": "Yamaha TMAX 2024",
+        "categoria": "maxi scooter",
+        "stock": 5,
+        "cilindraje": "562 cc",
+        "precio": 14.099,
+        "Imagen": "Yamaha TMAX 2024.jpg"
+    },
+    {
+        "id": 6,
+        "nombre": "Piaggio MP3 530 Exclusive 2023",
+        "categoria": "maxi scooter",
+        "stock": 1,
+        "cilindraje": "530 cc",
+        "precio": 12.999,
+        "Imagen": "Piaggio MP3 530 Exclusive 2023.webp"
+    },
+    {
+        "id": 7,
+        "nombre": "Honda X-ADV 2024",
+        "categoria": "maxi scooter",
+        "stock": 4,
+        "cilindraje": "745 cc",
+        "precio": 13.05,
+        "Imagen": "Honda X-ADV 2024.jpg"
+    },
+    {
+        "id": 8,
+        "nombre": "Triumph Tiger 1200 GT Pro 2024",
+        "categoria": "deportivas",
+        "stock": 2,
+        "cilindraje": "1160 cc",
+        "precio": 22.845,
+        "Imagen": "Triumph Tiger 1200 GT Pro 2024.jpg"
+    }
+]

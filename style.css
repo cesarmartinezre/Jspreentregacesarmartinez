@@ -1,39 +1,68 @@
-@import url("https://fonts.googleapis.com/css2? family= Open+Sans:wght@400;500;600 & display=swap");
+
 *{
     margin: 0%;
     padding: 0%;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
+body{
+    background-color: #ffffeb;
+}
+
+h1{
+    color: #bdbfbf;
+    font-size: 150px;
+    text-align: center;
+    background-color: #fa5f49
+}
+
+
 #productos {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
     flex-wrap: wrap;
+
 }
 .producto {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   
-    border: 2px solid black;
-    margin: 2px;
-    height: 300px;
-    
-    
+    width: 300px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 20px;
+    transition: box-shadow 0.3 ease-in-out;
+    text-align: center;
+    background-color: #fff
 }
+    
+
+.producto:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+
 .producto * {
-    margin: 4px;
+    margin: 4px;    
 }
 .producto img {
-    width: 250px;
+    width: 100%;
+    height: 210px;
 }
 
 #carrito {
     width: 90%;
     min-height: 200px;
     border: 1px solid black;
+    
+    
 }
 .oculta{
     display: none;
+    
 }
 table * {
     text-align: center;
 }
+
+

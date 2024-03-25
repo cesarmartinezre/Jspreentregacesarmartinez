@@ -4,22 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tiburoncin</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    
   </head>
   <body>
     <h1>TIBUMOTORES</h1>
 
-    <button id="verOcultarInfo">Ver carrito</button>
+    <button class="carrito" id="verOcultarInfo">Ver carrito</button>
+    
+
     <div id="seccionVenta">
         <input placeholder="Nombre" id="input">
         <input placeholder="Precio menor" id="precioMenor">
         <input placeholder="Precio mayor" id="precioMayor">
-        <button id="botonBuscar">BUSCAR</button>
+
+        <button  id="botonBuscar">BUSCAR</button>
         <div id="categorias">
 
         </div>
     
-        <div id="productos"></div>
+        <div class="card" id="productos"></div>
+        
     </div>
 
     <div class="oculta" id="seccionCarrito">
@@ -47,6 +58,9 @@
     </div>
     
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
     <script src="./scrip.js"></script>
   </body>
 </html>
